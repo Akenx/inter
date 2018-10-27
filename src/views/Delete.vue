@@ -2,17 +2,14 @@
 <template>
   <div class="hello">
     <!-- <el-button v-on:click="putData()">put datas</el-button> -->
-<div style="width:200px;margin:auto">
-<el-input v-model="input" placeholder="title"></el-input>
-<el-input v-model="input2" placeholder="description"></el-input>
-</div>
+
 <!-- eslint-disable-next-line -->
     <div v-for="task in tasks">
       
       
         <li>title:{{task.title}}</li>
         <li> description:{{task.description}}</li>  
-        <el-button v-on:click="putData(task._id)">put</el-button>
+        <el-button type="danger" v-on:click="deleteData(task._id)">delete</el-button>
     </div>
 
   </div>
@@ -31,19 +28,15 @@ export default {
   data(){
         return{
               newtask: new Task(),
-              tasks: new Array(),
-              input:'',
-              input2:''
+              tasks: new Array()
         }
   },
   created(){
     this.getData()
   },
   methods:{
-    putData(id){
-      this.newtask.title = this.input
-      this.newtask.description = this.input2
-      axios.put('api/task/' + id,this.newtask)
+    deleteData(id){
+      axios.delete('api/task/' + id,this.newtask)
       this.getData()
     },
     getData(){

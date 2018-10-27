@@ -30,7 +30,17 @@ export default new Router({
       path: '/put',
       name: 'put',
       component: loadView('Put')
-    }
+    },
+    {
+      path: '/delete',
+      name: 'delete',
+      component: loadView('Delete')
+    },
+    {
+      path: '/test',
+      name: 'test',
+      component: loadView('Test')
+    },
   ]
 })
 
