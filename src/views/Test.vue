@@ -1,6 +1,6 @@
 
 <template>
-<div>
+<div class="app">
  <p>   {{num}}</p>
      <el-button type="success" @click="add">+1</el-button>
 </div>
@@ -27,5 +27,7 @@ export default {
 
 
 <style scoped>
-
+.app{
+    background-color: #eee;
+}
 </style>
