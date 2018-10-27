@@ -2,13 +2,16 @@
 <template>
   <div class="hello">
     <el-button type="success" v-on:click="getTitle()">get datas</el-button>
+
+
+
 <!-- eslint-disable-next-line -->
-    <div v-for="task in tasks">
-        <li>title:{{task.title}}</li>
+    <div style="width:200px;margin:auto;background-color:skyblue;margin-top:10px;" v-for="task in tasks">
+        <li style="float:left;">title:{{task.title}}</li>
         <li> description:{{task.description}}</li>  
     </div>
+        </div>
 
-  </div>
 </template>
 
 <script>
