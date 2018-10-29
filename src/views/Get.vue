@@ -31,6 +31,9 @@ export default {
       // task = new Task()
     };
   },
+  mounted(){
+    
+  },
   methods: {
     getTitle() {
       this.get = true;
