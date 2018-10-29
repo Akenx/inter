@@ -18,6 +18,7 @@ export default {
 
     add(){
         this.num++
+        this.$store.state.b = "john"
         console.log(this.$store.state.b)
     }
       

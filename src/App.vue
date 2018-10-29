@@ -6,7 +6,8 @@
       <router-link to="/post">Post</router-link> |
       <router-link to="/put">Put</router-link> |
       <router-link to="/delete">Delete</router-link> |
-      <router-link to="/test">Test</router-link> 
+      <router-link to="/test">Test</router-link> |
+      <router-link to="/register">Register</router-link> 
     </div>
     <router-view/>
   </div>

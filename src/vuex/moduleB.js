@@ -1,3 +1,3 @@
 export default {
-    state:2
+    state:null
   }
