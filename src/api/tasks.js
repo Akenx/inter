@@ -13,8 +13,8 @@ router.get('/task',async (req, res) =>{
 })
 
 router.post('/task',async (req, res) =>{
-    const task = new Task(req.body)
-    await task.save()
+    const all = new Task(req.body)
+    await all.save()
     res.json({status:'task saved'})
 })
 

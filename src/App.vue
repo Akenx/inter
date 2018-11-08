@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
+      <!-- <router-link to="/">Home</router-link> |
       <router-link to="/get">Get</router-link> |
       <router-link to="/post">Post</router-link> |
       <router-link to="/put">Put</router-link> |
       <router-link to="/delete">Delete</router-link> |
-      <router-link to="/test">Test</router-link> |
+      <router-link to="/test">Test</router-link> | -->
       <router-link to="/register">Register</router-link> 
     </div>
     <router-view/>
@@ -20,6 +20,12 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  position: fixed;
+  top:0;
+  bottom: 0;
+  background-color: #f0f0f0;
+  width: 100%;
+  left: 0;
 }
 #nav {
   padding: 30px;
