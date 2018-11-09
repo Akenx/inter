@@ -3,6 +3,8 @@
 
 <template>
   <div class="home">
+    <div style="width:100%" ><router-link to="/register">Register</router-link> </div>
+    
     <img alt="Vue logo" :src="require('../assets/'+img+'.png')">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>

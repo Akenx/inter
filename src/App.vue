@@ -1,14 +1,14 @@
 <template>
   <div id="app">
-    <div id="nav">
+    <!-- <div id="nav"> -->
       <!-- <router-link to="/">Home</router-link> |
       <router-link to="/get">Get</router-link> |
       <router-link to="/post">Post</router-link> |
       <router-link to="/put">Put</router-link> |
       <router-link to="/delete">Delete</router-link> |
       <router-link to="/test">Test</router-link> | -->
-      <router-link to="/register">Register</router-link> 
-    </div>
+      <!-- <router-link to="/register">Register</router-link>  -->
+    <!-- </div> -->
     <router-view/>
   </div>
 </template>

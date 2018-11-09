@@ -1,10 +1,14 @@
 
 <template>
 <div class="app">
+  <div style="width:100%; height:50px; text-align:left">
+    <i style="font-size:20pt; margin-top:5px; color:#888888" @click="goback()" class="el-icon-arrow-left"></i> 
+  </div>
+  <img alt="Vue logo" src='../assets/signlogo.png'>
   <h3>Sign in</h3>
   <el-alert
     title="username already exist"
-    type="error"
+    type="warning"
     show-icon
     v-show="userExistAlert"
     >
@@ -96,6 +100,9 @@ export default {
     };
   },
   methods: {
+    goback(){
+        this.$router.push({path: '/'});
+    },
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
         if (valid) {
