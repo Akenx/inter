@@ -3,7 +3,7 @@
 
 <template>
   <div>
-    This is a CRUD application
+    {{username}}
   </div>
 </template>
 
@@ -12,6 +12,11 @@ export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data(){
+    return{
+      username:this.$store.state.b
+    }
   }
 }
 

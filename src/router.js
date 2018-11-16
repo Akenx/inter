@@ -45,6 +45,11 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: loadView('Register')
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: loadView('Login')
     }
   ]
 })

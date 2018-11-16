@@ -4,10 +4,10 @@
   <div style="width:100%; height:50px; text-align:left">
     <i style="font-size:20pt; margin-top:5px; color:#888888" @click="goback()" class="el-icon-arrow-left"></i> 
   </div>
-  <img  src='../assets/signlogo.png'>
-  <h3>Sign in</h3>
+  <img  src='../assets/login.png'>
+  <h3>Login</h3>
   <el-alert
-    title="username already exist"
+    title="username or password incorrect"
     type="warning"
     show-icon
     v-show="userExistAlert"
@@ -20,11 +20,9 @@
   <el-form-item prop="pass">
     <el-input type="password" v-model="ruleForm2.pass" autocomplete="off" placeholder="password"></el-input>
   </el-form-item>
-  <el-form-item prop="checkPass">
-    <el-input type="password" v-model="ruleForm2.checkPass" autocomplete="off" placeholder="reenter your password"></el-input>
-  </el-form-item>
+  
    <el-form-item>
-    <el-button style="width:100%" type="primary" @click="submitForm('ruleForm2')">Sign in</el-button>
+    <el-button style="width:100%" type="success" @click="submitForm('ruleForm2')">Login</el-button>
   </el-form-item>
   </el-form>
   
@@ -40,21 +38,10 @@ export default {
       if (value === "") {
         callback(new Error("please enter your password"));
       } else {
-        if (this.ruleForm2.checkPass !== "") {
-          this.$refs.ruleForm2.validateField("checkPass");
-        }
         callback();
       }
     };
-    var validatePass2 = (rule, value, callback) => {
-      if (value === "") {
-        callback(new Error("please enter your password again"));
-      } else if (value !== this.ruleForm2.pass) {
-        callback(new Error("two input passwords do not match!"));
-      } else {
-        callback();
-      }
-    };
+    
 
     var isvalidateRegexn = (rule, value, callback)=>{
       if (value != null && value != "") {
@@ -74,7 +61,6 @@ export default {
       ruleForm2: {
         name: "",
         pass: "",
-        checkPass: "",
       },
       rules2: {
         name: [
@@ -95,13 +81,14 @@ export default {
           }
         ],
         pass: [{ validator: validatePass, trigger: "blur" }],
-        checkPass: [{ validator: validatePass2, trigger: "blur" }]
       }
     };
   },
   methods: {
     goback(){
         this.$router.push({path: '/'});
+
+
     },
     submitForm(formName) {
       this.$refs[formName].validate(valid => {
@@ -109,19 +96,23 @@ export default {
           let obj={}
           obj.username = this.ruleForm2.name
           obj.password = this.ruleForm2.pass
-          obj.type = true//判断是登陆还是注册操作
+          obj.type = false//判断是登陆还是注册操作
         axios.post("api/users",obj).then(res => {
           if(res.data){
-            this.userExistAlert = true
-
-          console.log("user already exitst")}
-          else{
-            this.$notify({
-            title: "SIGN IN",
-            message: "sign in successful",
-            type: "success"
+              this.$notify({
+            title: "LOGIN",
+            message: "login successful",
+            type: "success",
+            
           });
+          
+          this.$store.state.b = this.ruleForm2.name
+          console.log(this.$store.state.b)
           this.$router.push({path: '/'});//跳转到主页
+            }
+          else{
+            this.userExistAlert = true
+          console.log("username or password incorrect")
           }
       });
         } else {
@@ -129,12 +120,8 @@ export default {
           return false;
         }
       });
-      setTimeout(() => {
-        this.userExistAlert = false
-      }, 2000);
     }
   }
-  
 };
 </script>
 

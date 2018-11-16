@@ -3,10 +3,14 @@
 
 <template>
   <div class="home">
-    <div style="width:100%" ><router-link to="/register">Register</router-link> </div>
+    <nav style="margin:20px;">
+      <el-button type="primary" @click="register()">Sign in</el-button>
+      <el-button type="success" @click="login()">Login</el-button>
+      <!-- <router-link to="/register">Register</router-link>  -->
+    </nav>
     
-    <img alt="Vue logo" :src="require('../assets/'+img+'.png')">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <img width="60px" :src="require('../assets/'+img+'.png')">
+    <HelloWorld/>
   </div>
 </template>
 
@@ -21,7 +25,15 @@ export default {
   },
   data(){
     return{
-      img:"logo"
+      img:"personal"
+    }
+  },
+  methods:{
+    register(){
+      this.$router.push({path: '/register'});
+    },
+    login(){
+      this.$router.push({path: '/login'});
     }
   }
 }
