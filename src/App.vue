@@ -15,19 +15,21 @@
 
 <style>
 #app {
-  margin:0;
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  position: fixed;
-  top:0;
-  bottom: 0;
-  background-color: #f0f0f0;
-  width: 100%;
+  /* position: fixed; */
+  /* top:0;
+  bottom: 0; 
   left: 0;
+  overflow: scroll; */
+
+  /* background-color: #f0f0f0; */
+  width: 100%;
 }
+
 #nav {
   padding: 30px;
 }
@@ -43,6 +45,7 @@
   text-decoration-line: none
 }
 body{
-  background-color: #f5f5f5
+  background-color: #ebebeb;
+  margin: 0 auto;
 }
 </style>

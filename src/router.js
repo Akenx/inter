@@ -50,7 +50,17 @@ export default new Router({
       path: '/login',
       name: 'login',
       component: loadView('Login')
-    }
+    },
+    {
+      path: '/ask',
+      name: 'ask',
+      component: loadView('Ask')
+    },
+    {
+      path: '/notice',
+      name: 'notice',
+      component: loadView('Notice')
+    },
   ]
 })
 

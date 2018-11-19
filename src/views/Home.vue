@@ -10,31 +10,40 @@
     </nav>
     
     <img width="60px" :src="require('../assets/'+img+'.png')">
+  
     <HelloWorld/>
+    <button @click="ask">ask</button>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import HelloWorld from "@/components/HelloWorld.vue";
+import axios from "axios";
 
 export default {
-  name: 'home',
+  name: "home",
   components: {
     HelloWorld
   },
-  data(){
-    return{
-      img:"personal"
-    }
+  data() {
+    return {
+      img: "personal",
+    };
   },
-  methods:{
-    register(){
-      this.$router.push({path: '/register'});
+  methods: {
+    register() {
+      this.$router.push({ path: "/register" });
     },
-    login(){
-      this.$router.push({path: '/login'});
+    login() {
+      this.$router.push({ path: "/login" });
+    },
+    ask(){
+      // this.$store.state.b = 
+          console.log(this.$store.state.b)
+          this.$router.push({path: '/ask'});//跳转到主页
     }
+
   }
-}
+};
 </script>
