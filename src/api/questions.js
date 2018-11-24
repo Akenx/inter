@@ -39,22 +39,22 @@ var upload = multer({ storage: storage })
 
 router.post('/upload', upload.single('file'), function(req, res, next){
     var file = req.file;
-     console.log(req.body,999)
-    var obj = {
-        username:11,
-        title:22,
-        description:33,  
-    }
-    if(!file){
-        obj.picture = null
-    }
-    else{
-        obj.picture = file.originalname
-    }
+    //  console.log(req.body,999)
+    // var obj = {
+    //     username:11,
+    //     title:22,
+    //     description:33,  
+    // }
+    // if(!file){
+    //     obj.picture = null
+    // }
+    // else{
+    //     obj.picture = file.originalname
+    // }
 
     //  console.log(obj)
-    const all = new Question(obj)
-     all.save()
+    // const all = new Question(obj)
+    //  all.save()
     // res.json({status:'task saved'})
 
     // console.log('文件类型：%s', file.filename);

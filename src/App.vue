@@ -44,8 +44,8 @@
   color: #42b983;
   text-decoration-line: none
 }
-body{
+/* body{
   background-color: #ebebeb;
   margin: 0 auto;
-}
+} */
 </style>

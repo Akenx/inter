@@ -61,6 +61,11 @@ export default new Router({
       name: 'notice',
       component: loadView('Notice')
     },
+    {
+      path: '/upload',
+      name: 'upload',
+      component: loadView('Upload')
+    },
   ]
 })
 
