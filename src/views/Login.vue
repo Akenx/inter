@@ -1,8 +1,8 @@
 
 <template>
 <div class="app">
-  <div style="width:100%; height:50px; text-align:left">
-    <i style="font-size:20pt; margin-top:5px; color:#888888" @click="goback()" class="el-icon-arrow-left"></i> 
+  <div style="width:100%; height:50px; text-align:left;">
+    <i style="font-size:20pt; margin-top:5px; color:#888888" @click="$router.back(-1)" class="el-icon-arrow-left"></i>
   </div>
   <img  src='../assets/login.png'>
   <h3>Login</h3>
@@ -103,7 +103,6 @@ export default {
             title: "LOGIN",
             message: "login successful",
             type: "success",
-            
           });
           
           this.$store.state.b = this.ruleForm2.name
@@ -129,7 +128,12 @@ export default {
 <style scoped>
 .app {
   /* background-color: #eee; */
-  height: 300px;
+  /* height: 300px;
+  padding: 10px; */
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color:#f9f9f9;
   padding: 10px;
 }
 </style>

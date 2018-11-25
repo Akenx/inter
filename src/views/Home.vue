@@ -1,18 +1,18 @@
 
-// 使用组件
-
 <template>
   <div class="home">
     <nav style="margin:20px;">
       <el-button type="primary" @click="register()">Sign in</el-button>
       <el-button type="success" @click="login()">Login</el-button>
+      
       <!-- <router-link to="/register">Register</router-link>  -->
     </nav>
     
     <img width="60px" :src="require('../assets/'+img+'.png')">
   
     <HelloWorld/>
-    <button @click="ask">ask</button>
+    <el-button @click="ask">ask</el-button>
+    <el-button @click="answer">answer</el-button>
   </div>
 </template>
 
@@ -41,9 +41,11 @@ export default {
     ask(){
       // this.$store.state.b = 
           console.log(this.$store.state.b)
-          this.$router.push({path: '/ask'});//跳转到主页
+          this.$router.push({path: '/ask'});
+    },
+    answer(){
+       this.$router.push({path: '/answer'});
     }
-
   }
 };
 </script>

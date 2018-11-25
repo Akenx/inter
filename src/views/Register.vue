@@ -142,7 +142,10 @@ export default {
 <style scoped>
 .app {
   /* background-color: #eee; */
-  height: 300px;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color:#f9f9f9;
   padding: 10px;
 }
 </style>

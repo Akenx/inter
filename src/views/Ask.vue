@@ -1,53 +1,46 @@
 
 <template>
   <div class="main">
-    
-    <mu-appbar style="width: 100%;" color="cyan500">
-  <mu-button icon slot="left">
+    <mu-appbar style="width: 100%; margin-bottom:2px;" color="cyan500">
+  <mu-button icon slot="left" @click="$router.back(-1)">
     <i class="el-icon-arrow-left"></i>
   </mu-button>
 <span class="span">Ask a Question</span> 
 </mu-appbar>
 
-    <div class="write">
+<div class="content">
+  <div class="write">
       <el-form ref="form" :model="task">
 
          <el-form-item>
-             <el-input v-model="task.title" placeholder="title"></el-input>
+             <el-input rows="2" type="textarea" v-model="task.title" placeholder="Question"></el-input>
          </el-form-item>
 
-         <el-form-item>
-             <el-input v-model="task.description" placeholder="description"></el-input>
+         <el-form-item >
+             <el-input rows="5" type="textarea" v-model="task.description" placeholder="Description"></el-input>
          </el-form-item>
+
 
  <div class="uploadbutton">
  
-
         <input class="upload" type="file" name="file" accept="image/png,image/jpeg" @change="changeFile"/>
         <i class="el-icon-picture iconwidth"></i>
         <label class="picname"> {{task.picture}}</label>
-      
         <!-- <button @click="sendAjax">发送请求</button><br /> -->
         <!-- <el-progress style="width:300px; margin:auto" color="#8e71c7"  :percentage="rate"></el-progress> -->
     </div>
 
 
+        <el-button type="primary" @click="sendForm">Post Your Question</el-button>
 
-
-         <el-form-item>
-             <el-button type="success" id="postbutton" size="medium" @click="sendForm">Post Data</el-button>
-         </el-form-item>
+         <!-- <el-form-item>
+             <el-button  id="postbutton" size="medium" @click="sendForm">Post Data</el-button>
+         </el-form-item> -->
 
       </el-form>
     </div>
-
-
-
-    <div v-for="data in datas">
-    <img v-if="data.picture" width="60px" :src="require('../assets/'+data.picture)">
-    </div>
-    
-  
+</div>
+      
   </div>
 </template>
 
@@ -58,7 +51,6 @@ import axios from "axios";
 export default {
   data() {
     return {
-      datas: new Array(),
       file: null,
       rate: 0,
       task: {
@@ -70,15 +62,17 @@ export default {
     };
   },
   mounted() {
-    this.getPic();
   },
   methods: {
+    open6() {
+        this.$message({
+          showClose: true,
+          message: 'post successful',
+          type: 'success'
+        });
+      },
     sendForm: function() {
-      // console.log(this.file);
-      // if(this.file){
-      //   this.sendAjax()
-      // }
-      // console.log(this.task);
+
       axios
         .post("api/questions", this.task) //this.task 换成 newTask(不用class的写法)
         .then(response => {
@@ -87,14 +81,8 @@ export default {
         .catch(error => {
           console.log(error); // eslint-disable-line
         });
-        this.getPic();
-      // this.task = new Task()
-      this.$notify({
-        title: "POST",
-        message: "post to database successful",
-        type: "success"
-      });
-      
+      this.open6()
+      this.$router.push({path: '/'});
     },
 
     sendAjax: function() {
@@ -114,28 +102,24 @@ export default {
     changeFile: function(e) {
       this.file = e.target.files[0];
       // console.log(this.file.name,33)
-      if (this.file) this.task.picture = this.file.name;
-      this.sendAjax()
+      if (this.file)
+      { this.task.picture = this.file.name;
+      this.sendAjax();
+      }
       // console.log(this.task.picture,33)
     },
-    getPic: function() {
-      axios.get("api/questions").then(res => {
-        // console.log(res.data)
-        this.datas = res.data;
-        console.log(this.datas);
-      });
-    }
   }
 };
 </script>
 
 <style scoped>
+
 .main {
   position: fixed;
   right: 0;
   width: 100%;
   height: 100%;
-  background-color: #eee;
+  background-color:#f9f9f9;
   overflow: scroll;
 }
 
@@ -155,28 +139,42 @@ export default {
   /* z-index: -1; */
 }
 
-.picname{
-  font-size: 12pt;
+.picname {
+  font-size: 10pt;
   position: absolute;
-  top:10px;
+  top: 9px;
+  left: 33px;
 }
 
 .write {
   margin-top: 15px;
 }
-.span{
+
+.span {
   padding-right: 60px;
 }
-.iconwidth{
-  font-size: 34px;
+
+.iconwidth {
+  font-size: 30px;
+  color: rgb(218, 218, 218);
 }
-.uploadbutton{
+
+.uploadbutton {
   position: relative;
   font-size: 15pt;
   text-align: left;
   width: 100%;
   height: 30px;
-  /* background-color: rgb(236, 118, 118); */
+  margin-bottom: 20px;
+  /* background-color: rgb(255, 255, 255); */
+  /* border:solid 1px #ddd; */
+  border-radius: 4px;
 }
+
+.content{
+  padding: 8px;
+  text-align: left;
+}
+
 </style>
 
