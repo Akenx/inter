@@ -12,7 +12,7 @@
 
 <div class="card" v-for="data in datas" @click="viewAnswer(data._id,data.answerData)">
       
-      <span style="  font-weight:bold;" class="point point2">{{data.question}}</span>
+      <span class="point point2">{{data.question}}</span>
       <div style="height:10px;width:50px;"></div>
       <span class="point point3">{{data.description}}</span>
       <div v-if="data.description" style="height:7px;"></div>
@@ -96,6 +96,8 @@ overflow: hidden;
 
 .point2{
   -webkit-line-clamp: 2;
+  text-transform:capitalize;
+  font-weight:bold;
 }
 .point3{
   -webkit-line-clamp: 3;
