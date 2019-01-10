@@ -1,6 +1,6 @@
 
 <template>
-  <div class="main">
+  <div class="askMain">
     <mu-appbar style="width: 100%; margin-bottom:1px;" color="#014d67">
   <mu-button icon slot="left" @click="$router.back(-1)">
     <i class="el-icon-arrow-left"></i>
@@ -44,7 +44,7 @@
     </mu-paper>
 </div>
       <!-- <button class="postbutton">POST YOUR QUESTION</button> -->
-      <mu-button color="#fbb217" @click="sendForm">Post Your Question</mu-button>
+      <el-button  @click="sendForm">POST YOUR QUESTION</el-button>
   </div>
 </template>
 
@@ -128,25 +128,32 @@ export default {
 </script>
 
 <style >
-.el-textarea__inner:focus{
+.askMain .el-textarea__inner:focus{
   border:solid 1px #608f9f;
 }
 
-.el-textarea__inner{
-border:solid 1px #eee;
-resize:none;
-padding-bottom: 0;
-width: 320px;
-margin: auto;
+.askMain .el-textarea__inner{
+  border:solid 1px #eee;
+  resize:none;
+  padding-bottom: 0;
+  width: 320px;
+  margin: auto;
 }
-.mu-paper{
+.askMain .mu-paper{
   padding: 5px;
   margin-bottom: 20px;
   width: 100%;
   /* margin-top: 25px; */
 }
+.askMain .el-button{
+  background-color: #fbb217;
+  color:white
+}
+</style>
 
-.main {
+<style scoped>
+
+.askMain {
   position: fixed;
   right: 0;
   width: 100%;
@@ -156,7 +163,7 @@ margin: auto;
   overflow: scroll;
 }
 
-.main::-webkit-scrollbar {
+.askMain::-webkit-scrollbar {
   display: none;
 }
 

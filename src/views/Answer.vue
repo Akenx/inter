@@ -59,16 +59,18 @@ export default {
       obj = {a:2,b:2,c:2}
       axios.put("api/questions/" + id, obj).then(res=>{
       })
-     
     },
+    
     viewAnswer(id,answers){
       // console.log(id);
       this.$router.push({
         name: 'viewAnswer',
-        params:{id:id,answers:answers}
+        params:{
+          id:id,
+          answers:answers
+          }
         });
     }
-
  }
 };
 </script>
