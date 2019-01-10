@@ -14,13 +14,16 @@ export default {
       num:0
     };
   },
+  created(){
+    // console.log(this.$route.params.id);
+    console.log(this.$route.params.answers);
+  },
   methods: {
 
     add(){
         this.num++
         this.$store.state.b = "john"
         // console.log(this.$store.state.b)
-        
     }
      
     }

@@ -12,7 +12,7 @@
   
     <HelloWorld/>
     <el-button @click="ask">ask</el-button>
-    <el-button @click="answer">answer</el-button>
+    <el-button @click="info">info</el-button>
   </div>
 </template>
 
@@ -43,9 +43,21 @@ export default {
           console.log(this.$store.state.b)
           this.$router.push({path: '/ask'});
     },
-    answer(){
+    info(){
        this.$router.push({path: '/answer'});
     }
   }
 };
 </script>
+
+
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+
+.home{
+  /* background-color:rgb(251, 178, 23); */
+}
+
+
+</style>

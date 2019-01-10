@@ -24,5 +24,5 @@ app.use('/api',questions);
 // app.get('*',function(req, res){
 // res.sendfile(__dirname + "/dist/index.html");
 // });
-const port = process.env.PORT || 8000;
-app.listen(port, () => console.log(`listening to port ${port}...`));
+const port = process.env.PORT || 8080;
+var server =app.listen(port, () => console.log(`listening to port ${port}...`));

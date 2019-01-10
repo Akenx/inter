@@ -20,7 +20,7 @@ var createFolder = function(folder){
         fs.mkdirSync(folder);
     }  
 };
-var uploadFolder = './src/assets';
+var uploadFolder = './src/assets/upload';
 
 createFolder(uploadFolder);
 // 通过 filename 属性定制
@@ -74,4 +74,20 @@ router.get('/questions',async (req, res) =>{
         res.json(err)
     })
 })
+
+router.put('/questions/:id', async (req, res) =>{
+
+    await Question.findOne({_id:req.params.id},(err,question)=>{
+        question.answerData.push(req.body)
+        // console.log(req.body)
+        console.log(question.answerData)
+        question.save()
+    })
+     
+    // res.answerData.push(req.body)
+    res.json({
+        status:'task update'
+    })
+})
+
 module.exports = router

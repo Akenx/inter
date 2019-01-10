@@ -2,10 +2,11 @@ const mongoose = require('mongoose')
 
 
 var questions = mongoose.Schema({
-    username:String,
-    title: String,
+    asker:String,
+    question: String,
     description: String,
-    picture:String
+    picture:String,
+    answerData:Array
 },
 { collection: 'questions' })
 

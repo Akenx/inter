@@ -71,6 +71,11 @@ export default new Router({
       name: 'answer',
       component: loadView('Answer')
     },
+    {
+      path: '/viewAnswer/:id',
+      name: 'viewAnswer',
+      component: loadView('ViewAnswer')
+    },
   ]
 })
 
