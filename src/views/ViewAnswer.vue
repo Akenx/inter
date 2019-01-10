@@ -34,7 +34,7 @@ export default {
 
 <style scoped>
 .app{
-    position: fixed;
+  position: fixed;
   width: 100%;
   height: 100%;
   background-color:#f9f9f9;

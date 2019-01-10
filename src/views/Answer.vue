@@ -12,9 +12,11 @@
 
 <div class="card" v-for="data in datas" @click="viewAnswer(data._id,data.answerData)">
       
-      <h2>{{data.question}}</h2>
-      <p>{{data.description}}</p>
-      <p>{{data.asker}}</p>
+      <span style="  font-weight:bold;" class="point point2">{{data.question}}</span>
+      <div style="height:10px;width:50px;"></div>
+      <span class="point point3">{{data.description}}</span>
+      <div v-if="data.description" style="height:7px;"></div>
+      <span>{{data.asker}}</span>
       <img style="display:block" v-if="data.picture" width="80px" :src="require('../assets/upload/' + data.picture)">
       <!-- <el-button style="float:right;margin-top:5px" v-on:click="putData(data._id)">respond</el-button> -->
 
@@ -60,7 +62,7 @@ export default {
       axios.put("api/questions/" + id, obj).then(res=>{
       })
     },
-    
+
     viewAnswer(id,answers){
       // console.log(id);
       this.$router.push({
@@ -84,16 +86,27 @@ export default {
   height: 100%;
   background-color:#f9f9f9;
   overflow: scroll;
+  padding-top: 56px;
 }
-h2{
-  margin: 0;
-  padding: 0;
-  line-height: 0.5;
+.point{
+display: -webkit-box;
+-webkit-box-orient: vertical;
+overflow: hidden;
+}
+
+.point2{
+  -webkit-line-clamp: 2;
+}
+.point3{
+  -webkit-line-clamp: 3;
 }
 .head{
-  background-color: #014d67;
+  background-color: #f5f5f5;
   height: 56px;
-  color: #fff;
+  color:black;
+  position: fixed;
+  width: 100%;
+  top:0;
 }
 
 .card
@@ -101,7 +114,10 @@ h2{
   margin-bottom: 15px;
   width: 100%;
   background-color: white;
-  padding :22px;
+  padding :18px;
   text-align: left;
+  word-break: break-all;
 }
+
+
 </style>
