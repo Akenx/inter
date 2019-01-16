@@ -10,7 +10,7 @@
 </div>
 
 
-<div class="card" v-for="data in datas" @click="viewAnswer(data._id,data.answerData)">
+<div class="card" v-for="data in datas" @click="viewAnswer(data._id,data)">
       
       <span class="point point2">{{data.question}}</span>
       <div style="height:10px;width:50px;"></div>
@@ -36,7 +36,7 @@ export default {
     };
   },
   mounted(){
-      this.getPic()
+      this.getData()
       // console.log(this.$store.state.b)
   },
   methods: {
@@ -47,8 +47,8 @@ export default {
         console.log(this.$store.state.b)
     },
 
-    getPic: function() {
-      axios.get("api/questions").then(res => {
+    getData: function() {
+      axios.get("/api/questions").then(res => {
         // console.log(res.data)
         this.datas = res.data;
         // console.log(this.datas);
@@ -57,19 +57,21 @@ export default {
     
     putData(id){
         // this.task.answerData.push({a:6,b:7,c:5})
+         console.log(id);
       let obj = {}
-      obj = {a:2,b:2,c:2}
-      axios.put("api/questions/" + id, obj).then(res=>{
+      obj = {a:4,b:2,c:2}
+      axios.put("/api/questions/" + id, obj).then(res=>{
       })
     },
 
-    viewAnswer(id,answers){
+    viewAnswer(id,data){
       // console.log(id);
       this.$router.push({
         name: 'viewAnswer',
         params:{
           id:id,
-          answers:answers
+          data:data,
+          // answers:answers
           }
         });
     }
@@ -96,29 +98,34 @@ overflow: hidden;
 
 .point2{
   -webkit-line-clamp: 2;
-  text-transform:capitalize;
   font-weight:bold;
+  color: rgb(74, 137, 231);
+  font-size: 16px;
+}
+.point2:first-letter{
+  text-transform:capitalize;
 }
 .point3{
   -webkit-line-clamp: 3;
 }
 .head{
-  background-color: #f5f5f5;
+  background-color: #fafafa;
   height: 56px;
-  color:black;
+  color:#014d67;
   position: fixed;
   width: 100%;
   top:0;
+  border-bottom: 1px solid #eee;
 }
 
 .card
 {
-  margin-bottom: 15px;
+  margin-bottom: 12px;
   width: 100%;
   background-color: white;
   padding :18px;
   text-align: left;
-  word-break: break-all;
+  word-wrap:break-word;
 }
 
 
