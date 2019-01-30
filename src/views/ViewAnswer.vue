@@ -15,8 +15,6 @@
      <div style="height:10px;width:50px;"></div>
      <img style="display:block" v-if="picture" width="100%" :src="require('../assets/upload/' + picture)">
 
-     
-     
   </div>
   <div  style="font-weight:bold;margin:10px">{{answerNum}} answers</div>
    <div  v-for="answer in answers" class="card">

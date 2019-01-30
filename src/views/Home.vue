@@ -5,6 +5,7 @@
       <el-button type="primary" @click="register()">Sign in</el-button>
       <el-button type="success" @click="login()">Login</el-button>
       
+      
       <!-- <router-link to="/register">Register</router-link>  -->
     </nav>
     
@@ -13,6 +14,7 @@
     <HelloWorld/>
     <el-button @click="ask">ask</el-button>
     <el-button @click="info">info</el-button>
+    <el-button @click="comment">comment</el-button>
   </div>
 </template>
 
@@ -45,6 +47,9 @@ export default {
     },
     info(){
        this.$router.push({path: '/answer'});
+    },
+    comment(){
+      this.$router.push({path: '/comment'});
     }
   }
 };

@@ -76,6 +76,11 @@ export default new Router({
       name: 'viewAnswer',
       component: loadView('ViewAnswer')
     },
+    {
+      path: '/comment',
+      name: 'comment',
+      component: loadView('Comment')
+    },
   ]
 })
 
